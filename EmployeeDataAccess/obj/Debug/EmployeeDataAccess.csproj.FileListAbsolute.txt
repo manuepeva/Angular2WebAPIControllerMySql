@@ -1,0 +1,11 @@
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EmployeeDataAccess.dll.config
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EmployeeDataAccess.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EmployeeDataAccess.pdb
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.pdb
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.csprojResolveAssemblyReference.cache
