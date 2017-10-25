@@ -8,4 +8,3 @@ C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\bin\Debug\Entity
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.csproj.CoreCompileInputs.cache
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.dll
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.pdb
-C:\Users\0d sat\source\repos\EmployeeService\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.csprojResolveAssemblyReference.cache

@@ -25,5 +25,14 @@ namespace EmployeeService.Controllers
                 return entities.EMPLOYEESTABLEs.FirstOrDefault(e => e.ID == id);
             }
         }
+
+        public void Post([FromBody] EMPLOYEESTABLE employee)
+        {
+             using(mydbEntities entities = new mydbEntities())
+            {
+                entities.EMPLOYEESTABLEs.Add(employee);
+                entities.SaveChanges();
+            }
+        }
     }
 }
