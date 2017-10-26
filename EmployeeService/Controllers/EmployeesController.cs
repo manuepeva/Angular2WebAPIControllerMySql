@@ -18,20 +18,41 @@ namespace EmployeeService.Controllers
             }
         }
 
-        public EMPLOYEESTABLE Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             using(mydbEntities entities = new mydbEntities())
             {
-                return entities.EMPLOYEESTABLEs.FirstOrDefault(e => e.ID == id);
+                var entity =  entities.EMPLOYEESTABLEs.FirstOrDefault(e => e.ID == id);
+
+                if(entity != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, entity);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Employee web Id = " + id.ToString() + "not found");
+                }
             }
         }
 
-        public void Post([FromBody] EMPLOYEESTABLE employee)
+        public HttpResponseMessage Post([FromBody] EMPLOYEESTABLE employee)
         {
-             using(mydbEntities entities = new mydbEntities())
+            try
             {
-                entities.EMPLOYEESTABLEs.Add(employee);
-                entities.SaveChanges();
+                using (mydbEntities entities = new mydbEntities())
+                {
+                    entities.EMPLOYEESTABLEs.Add(employee);
+                    entities.SaveChanges();
+
+                    var message = Request.CreateResponse(HttpStatusCode.Created, employee);
+                    message.Headers.Location = new Uri(Request.RequestUri + employee.ID.ToString());
+                    return message;
+                }
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                
             }
         }
     }
