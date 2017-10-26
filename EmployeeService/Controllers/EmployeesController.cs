@@ -55,5 +55,61 @@ namespace EmployeeService.Controllers
                 
             }
         }
+
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                using (mydbEntities entities = new mydbEntities())
+                {
+                    var entity = entities.EMPLOYEESTABLEs.FirstOrDefault(e => e.ID == id);
+                    if (entity == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Employee with ID = "
+                            + id.ToString() + " not found to delete");
+                    }
+                    else
+                    {
+                        entities.EMPLOYEESTABLEs.Remove(entity);
+                        entities.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        public HttpResponseMessage Put(int id, [FromBody]EMPLOYEESTABLE employee)
+        {
+            try {
+                using (mydbEntities entities = new mydbEntities())
+                {
+                    var entity = entities.EMPLOYEESTABLEs.FirstOrDefault(e => e.ID == id);
+
+                    if (entity == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Employee with ID = "
+                            + id.ToString() + "not found to update");
+                    }
+                    else
+                    {
+                        entity.FIRST_NAME = employee.FIRST_NAME;
+                        entity.LAST_NAME = employee.LAST_NAME;
+                        entity.GENDER = employee.GENDER;
+                        entity.SALARY = employee.SALARY;
+
+                        entities.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK, entity);
+                    }
+                }
+              }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+            }
     }
 }
