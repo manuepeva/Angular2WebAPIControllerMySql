@@ -10,12 +10,29 @@ namespace EmployeeService.Controllers
 {
     public class EmployeesController : ApiController
     {
-        public IEnumerable<EMPLOYEESTABLE> Get()  
+            
+        public HttpResponseMessage Get(string gender="All")  
         {
             using(mydbEntities entities = new mydbEntities())
             {
-                return entities.EMPLOYEESTABLEs.ToList();
-            }
+                switch (gender.ToLower())
+                {
+
+                    case "all":
+                        return Request.CreateResponse(HttpStatusCode.OK,
+                            entities.EMPLOYEESTABLEs.ToList());
+                    case "male":
+                        return Request.CreateResponse(HttpStatusCode.OK,
+                            entities.EMPLOYEESTABLEs.Where(e => e.GENDER.ToLower() =="male").ToList());
+                    case "female":
+                        return Request.CreateResponse(HttpStatusCode.OK,
+                            entities.EMPLOYEESTABLEs.Where(e => e.GENDER.ToLower() == "female").ToList());
+                    default:
+                        return Request.CreateErrorResponse(HttpStatusCode.BadRequest,
+                            "Value for gender must be 'All', 'Male' or 'Female'" +
+                            gender + " is invalid");
+                }
+               }
         }
 
         public HttpResponseMessage Get(int id)
@@ -82,7 +99,7 @@ namespace EmployeeService.Controllers
             }
         }
 
-        public HttpResponseMessage Put(int id, [FromBody]EMPLOYEESTABLE employee)
+        public HttpResponseMessage Put([FromBody]int id, [FromUri]EMPLOYEESTABLE employee)
         {
             try {
                 using (mydbEntities entities = new mydbEntities())
