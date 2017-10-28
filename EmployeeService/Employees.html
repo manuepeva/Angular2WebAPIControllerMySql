@@ -7,10 +7,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var ulEmployees = $('#ulEmployees');
-             $('#btn').click(function () {
+             $('#btn').click(function() {
                 $.ajax({
                     type: 'GET',
-                    url: "http://localhost:50321/api/employees",
+                    url: 'api/employees',
                     dataType: 'json',
                     success: function (data) {
                         ulEmployees.empty();
