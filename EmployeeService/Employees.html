@@ -7,15 +7,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var ulEmployees = $('#ulEmployees');
-             $('#btn').click(function() {
+             $('#btn').click(function () {
                 $.ajax({
                     type: 'GET',
                     url: 'api/employees',
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     success: function (data) {
                         ulEmployees.empty();
                         $.each(data, function (index, val) {
-                            var fullName = val.First_Name + ' ' + val.Last_Name;
+                            var fullName = val.FIRST_NAME + ' ' + val.LAST_NAME;
                             ulEmployees.append('<li>' + fullName + '</li>');
                         });
                     }

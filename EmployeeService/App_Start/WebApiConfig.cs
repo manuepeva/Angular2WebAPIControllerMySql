@@ -5,6 +5,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using WebApiContrib.Formatting.Jsonp;
+using Newtonsoft.Json.Serialization;
 
 namespace EmployeeService
 {
@@ -34,12 +35,13 @@ namespace EmployeeService
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{Id}",
-                defaults: new { Id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{ID}",
+                defaults: new { ID = RouteParameter.Optional }
             );
 
             var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             config.Formatters.Insert(0, jsonpFormatter);
+            
           }
     }
 }
