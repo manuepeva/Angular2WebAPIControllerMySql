@@ -77,3 +77,6 @@ C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\EmployeeDataAcc
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\EmployeeDataAccess.dll.config
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\WebApiContrib.Formatting.Jsonp.dll
 C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\WebApiContrib.Formatting.Jsonp.pdb
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\System.Web.Cors.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\System.Web.Http.Cors.dll
+C:\Users\0d sat\source\repos\EmployeeService\EmployeeService\bin\System.Web.Http.Cors.xml

@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using WebApiContrib.Formatting.Jsonp;
 using Newtonsoft.Json.Serialization;
+using System.Web.Http.Cors;
 
 namespace EmployeeService
 {
@@ -38,10 +39,11 @@ namespace EmployeeService
                 routeTemplate: "api/{controller}/{ID}",
                 defaults: new { ID = RouteParameter.Optional }
             );
-
-            var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+           EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+           /* var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             config.Formatters.Insert(0, jsonpFormatter);
-            
+            */
           }
     }
 }
