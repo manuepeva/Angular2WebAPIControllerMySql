@@ -11,7 +11,16 @@
     <Property Name="SALARY" Type="int" />
     <Property Name="DATEOFBIRTH" Type="date" />
   </EntityType>
+  <EntityType Name="Users1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="60" />
+    <Property Name="Password" Type="nchar" MaxLength="60" />
+  </EntityType>
   <EntityContainer Name="mydbModelStoreContainer">
     <EntitySet Name="EMPLOYEESTABLE" EntityType="Self.EMPLOYEESTABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users1" EntityType="Self.Users1" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

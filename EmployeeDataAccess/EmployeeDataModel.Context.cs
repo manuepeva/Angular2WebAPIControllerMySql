@@ -26,5 +26,6 @@ namespace EmployeeDataAccess
         }
     
         public virtual DbSet<EMPLOYEESTABLE> EMPLOYEESTABLEs { get; set; }
+        public virtual DbSet<Users1> Users1 { get; set; }
     }
 }

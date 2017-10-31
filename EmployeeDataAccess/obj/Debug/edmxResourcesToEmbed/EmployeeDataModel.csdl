@@ -13,5 +13,14 @@
   </EntityType>
   <EntityContainer Name="mydbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="EMPLOYEESTABLEs" EntityType="Self.EMPLOYEESTABLE" />
+    <EntitySet Name="Users1" EntityType="mydbModel.Users1" />
   </EntityContainer>
+  <EntityType Name="Users1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+  </EntityType>
 </Schema>

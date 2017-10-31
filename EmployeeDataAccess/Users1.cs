@@ -12,13 +12,10 @@ namespace EmployeeDataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLOYEESTABLE
+    public partial class Users1
     {
         public int ID { get; set; }
-        public string FIRST_NAME { get; set; }
-        public string LAST_NAME { get; set; }
-        public string GENDER { get; set; }
-        public Nullable<int> SALARY { get; set; }
-        public Nullable<System.DateTime> DATEOFBIRTH { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

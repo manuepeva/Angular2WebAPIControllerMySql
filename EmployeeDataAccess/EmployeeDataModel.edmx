@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EMPLOYEESTABLE">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,11 +16,19 @@
           <Property Name="SALARY" Type="int" />
           <Property Name="DATEOFBIRTH" Type="date" />
         </EntityType>
+        <EntityType Name="Users1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="60" />
+          <Property Name="Password" Type="nchar" MaxLength="60" />
+        </EntityType>
         <EntityContainer Name="mydbModelStoreContainer">
           <EntitySet Name="EMPLOYEESTABLE" EntityType="Self.EMPLOYEESTABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users1" EntityType="Self.Users1" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -37,7 +45,16 @@
         </EntityType>
         <EntityContainer Name="mydbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EMPLOYEESTABLEs" EntityType="Self.EMPLOYEESTABLE" />
+          <EntitySet Name="Users1" EntityType="mydbModel.Users1" />
         </EntityContainer>
+        <EntityType Name="Users1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +70,15 @@
                 <ScalarProperty Name="GENDER" ColumnName="GENDER" />
                 <ScalarProperty Name="SALARY" ColumnName="SALARY" />
                 <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users1">
+            <EntityTypeMapping TypeName="mydbModel.Users1">
+              <MappingFragment StoreEntitySet="Users1">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
