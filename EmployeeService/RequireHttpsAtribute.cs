@@ -18,9 +18,11 @@ namespace EmployeeService
                 actionContext.Response =
                     actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Found);
                 actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTP</p>", Encoding.UTF8, "text/xml");
-                UriBuilder uriBuilder = new UriBuilder(actionContext.Request.RequestUri);
-                uriBuilder.Scheme = Uri.UriSchemeHttps;
-                uriBuilder.Port = 44396;
+                UriBuilder uriBuilder = new UriBuilder(actionContext.Request.RequestUri)
+                {
+                    Scheme = Uri.UriSchemeHttps,
+                    Port = 50321
+                };
 
                 actionContext.Response.Headers.Location = uriBuilder.Uri;
             }
