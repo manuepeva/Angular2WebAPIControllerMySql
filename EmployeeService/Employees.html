@@ -12,7 +12,7 @@
                 var password = $('#txtPassword').val();
                 $.ajax({
                     type: 'GET',
-                    url: 'api/employees',
+                    url: 'employees.html',
                     dataType: 'json',
                     headers: {
                         'Authorization': 'Basic ' + btoa(username + ':' + password)
