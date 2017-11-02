@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-      <title></title>
+    <title></title>
     <meta charset="utf-8" />
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script type="text/javascript">
@@ -12,7 +12,7 @@
                 var password = $('#txtPassword').val();
                 $.ajax({
                     type: 'GET',
-                    url: 'api/employees',
+                    url: 'http://localhost:50321/Employees.html',
                     dataType: 'json',
                     headers: {
                         'Authorization': 'Basic ' + btoa(username + ':' + password)
@@ -40,8 +40,8 @@
     </script>
 </head>
 <body>
-     Username : <input type="text" id="txtUsername" />
-     Password : <input type="password" id="txtPassword" />
+    Username : <input type="text" id="txtUsername" />
+    Password : <input type="password" id="txtPassword" />
     <input id="btn" type="button" value="Authenticate and Get All Employees" />
     <input id="btnClear" type="button" value="Clear" />
     <ul id="ulEmployees"></ul>
