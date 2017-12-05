@@ -103,3 +103,4 @@ C:\Users\0d sat\source\repos\EmployeeServiceTwo\EmployeeServiceTwo\obj\Debug\Emp
 C:\Users\0d sat\source\repos\EmployeeServiceTwo\EmployeeServiceTwo\obj\Debug\EmployeeServiceTwo.csproj.CoreCompileInputs.cache
 C:\Users\0d sat\source\repos\EmployeeServiceTwo\EmployeeServiceTwo\obj\Debug\EmployeeServiceTwo.dll
 C:\Users\0d sat\source\repos\EmployeeServiceTwo\EmployeeServiceTwo\obj\Debug\EmployeeServiceTwo.pdb
+C:\Users\0d sat\source\repos\EmployeeServiceTwo\EmployeeServiceTwo\obj\Debug\EmployeeServiceTwo_MarkupCompile.cache

@@ -1,0 +1,3 @@
+[submodule "Angular2WebAPIControllerMySql"]
+	path = Angular2WebAPIControllerMySql
+	url = https://github.com/manuepeva/Angular2WebAPIControllerMySql.git
