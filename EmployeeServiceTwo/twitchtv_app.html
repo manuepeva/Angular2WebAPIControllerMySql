@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<style>
+		{
+					margin: 0px;
+					padding: 0px;
+		}
+		#main-box{
+			width: 800px;
+			height: 600px;
+			margin-left: 450px;
+			margin-top: 100px;
+		}
+			
+		#footer {
+			position:fixed;
+			float: right;
+			left: 0px;
+			bottom:0px;
+			height:34px;
+			width: 100%;
+			background: #ffeecc;
+}
+		.left{
+			float: left;
+			top: 40px;
+			padding:40px;
+			
+		}
+		h3{
+			margin-top: 40px;
+		}
+
+		
+		
+</style>
+
+
+</head>
+
+<body id="body">
+			
+			<div id="main-box">
+
+				<h3>Usuario</h3>
+				<div id="users_name" class="left"></div>
+			<h3>Status</h3>
+			<div id="status" class="left"></div>
+			<h3>Juego</h3>
+			<div id="game" class="left"></div>
+
+</div>
+
+
+
+
+
+
+<script >
+				$(document).ready(function(){
+
+							var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", 
+										"RobotCaleb", "noobs2ninjas", "brunofin"];
+								
+							var url = $.getJSON('https://api.twitch.tv/kraken/streams/freecodecamp?client_id=i4coqy9jget6965ldc8snng58qzt8p').done(function(data){
+									 
+									if(data.stream ===null){
+										$('#fcc').html('It is offline');
+									}
+									else{
+										$('#fcc').html('It is online');
+									}
+							});
+							for (var i=0; i < streams.length; i++){
+								$.ajax({
+									type: 'GET',
+									url: 'https://api.twitch.tv/kraken/channels/'+ streams[i],
+									headers:{
+										'client-ID': 'i4coqy9jget6965ldc8snng58qzt8p'
+									},
+									success: function(move){
+												//console.log(move);
+												$.getJSON('https://api.twitch.tv/kraken/streams/'+ move.name +'?client_id=i4coqy9jget6965ldc8snng58qzt8p').done(function(data2){
+											 
+											 			var name = data2._links.self.slice(37);
+											 		//	console.log(name);
+														if(data2.stream ===null){
+															$('#users_name').append('<a target= "blank" href="https://www.twitch.tv/' + name + '">'+name +' </a><br>');
+															$('#status').append('offline<br>');
+															$('#game').append('N/A<br>');
+														}
+														else{
+															$('#users_name').append('<a target= "blank" href="https://www.twitch.tv/' + name + '">'+name +' </a>Null<br>');
+															$('#status').append('online<br>');
+															$('#game').append(data2.stream.game + '<br>');
+														}
+										});
+									},
+									error: function(moving){
+										alert("user not found!");
+									}
+								});
+							}
+				});
+</script>
+</body>
+</html>
+
+<footer id="footer"> By: Manu Developer 
+		<A HREF = "https://www.upwork.com/ab/find-work/" target="_blank" id="button1">Upwork Jobs</A>
+</footer>

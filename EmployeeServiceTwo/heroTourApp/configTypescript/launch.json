@@ -1,0 +1,22 @@
+{
+  // Use Intellisense to learn about possible node.js debugging attributes.
+
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TypeScript Debug",
+      "program": "${workspaceRoot}/app.ts",
+      "outFiles": ["${workspaceRoot}/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Process",
+      "address": "localhost",
+      "port": 5858,
+      "outFiles": []
+    }
+  ]
+}

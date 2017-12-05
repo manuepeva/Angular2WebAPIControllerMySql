@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<style>
+		*{
+					margin: 0px;
+					padding: 0px;
+		}
+		#main-box{
+			
+			margin: 35px 35px 35px 35px;
+			height: 700px;
+			width: 1300px;
+			border-radius: 5%;
+			}
+
+		#content{
+			float: right;
+			margin: 200px 550px;
+			background-color: #ffeecc;
+			padding: 5px;
+			height: 190px;
+			width: 330px;
+			border-radius: 8px;
+		}
+					
+		#footer {
+			position:fixed;
+			float: right;
+			left: 0px;
+			bottom:0px;
+			height:34px;
+			width: 100%;
+			background: #ffeecc;
+
+		}
+
+		
+
+			#link1{
+		  
+		    margin: 125px 0px 5px 5px;
+		    height: 35px;
+		    
+			}
+			#link2{
+		  
+		    margin: 145px 0px 5px 5px;
+		    height: 35px;
+		    
+			}
+			#button1{
+				background-color: #ffffff;
+				border-style: dashed;
+				box-shadow: black;
+				float: right;
+				margin-top: 150px;
+				margin-right: 25px;
+				height: 30px;
+			}
+			#content2{
+				text-shadow: transparent;
+				letter-spacing: 8px;
+				line-height: 18px;
+				word-spacing: 18px
+			}
+	
+
+		
+</style>
+
+
+</head>
+
+<body>
+	<div id="main-box">
+		
+	
+	<div id="content">
+			<div id="content2"></div>
+		<a href="https://twitter.com" target="_blank"><img src="C:\Users\0d sat\Desktop\TestGitHub/twitter.png" id="link2"></a>
+		<a href="https://www.facebook.com/" target="_blank"><img src="C:\Users\0d sat\Desktop\TestGitHub/facebook.png" id="link1"></a>
+		<button id="button1">Get Your Today´s Quote </button>
+</body>
+
+
+
+
+
+<script>
+	
+		var randomQuotes = ["Whatever the mind of man can conceive and believe, it can achieve. –Napoleon Hill", " Strive not to be a success, but rather to be of value. –Albert Einstein", "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.  –Robert Frost", "I attribute my success to this: I never gave or took any excuse. –Florence Nightingale", "You miss 100% of the shots you don’t take. –Wayne Gretzky", "Definiteness of purpose is the starting point of all achievement. –W. Clement Stone", "Life isn't about getting and having, it's about giving and main-boxeing. –Kevin Kruse", "Life is 10% what happens to me and 90% of how I react to it. –Charles Swindoll"];
+		var randomColors = ["#ff9999", "#adebad",
+		"#80bfff", "#1aff66", "#668cff", "#ffff66", "#66ffd9"];
+
+	function randQ(){
+			var rand = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
+			alert(rand);
+	}
+
+		var random = document.getElementById('button1');
+
+		var random2 = document.getElementById('content2');
+
+		random.addEventListener("click", myFun);
+
+		function myFun(){
+					var rand1 = randomColors[Math.floor(Math.random() * randomColors.length)];
+					document.getElementById('main-box').style.background = rand1;
+					var rand = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
+					document.getElementById('content2').innerHTML = rand;
+			
+		}
+
+
+</script>
+
+</html>
+
+<footer id="footer"> By: Manu Developer 
+		<A HREF = "https://www.upwork.com/ab/find-work/" target="_blank" id="button1">Upwork Jobs</A>
+</footer>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<style>
+		{
+					margin: 0px;
+					padding: 0px;
+					}
+		body{
+			background-image: url("https://sistembigdata.files.wordpress.com/2014/09/big-data-drives-rapid-changes-1.jpg");
+			 background-repeat: no-repeat;
+			   
+    			background-attachment: fixed;
+		}
+		#main-box{
+			width: 800px;
+			height: 600px;
+			margin-left: 450px;
+			margin-top: 100px;
+		}
+			
+		#footer {
+			position:fixed;
+			float: right;
+			left: 0px;
+			bottom:0px;
+			height:34px;
+			width: 100%;
+			background: #ffeecc;
+}
+		#button2{
+			background: lightgreen;
+			margin-left: 50px;
+		}
+		h4{
+			color: #0044cc;
+
+		}
+
+		#emptydos{
+			width: 800px;
+			background: #ffffff;
+			border-style: solid;
+			border-radius: 3px;
+		}
+	
+
+		
+</style>
+
+
+</head>
+
+<body id="body">
+			
+			<div id="main-box">
+			<ul>
+				<h4>Type your Search Here</h4>
+				<input type="text" name="text" id="searchTerm">
+			</ul>
+			<ul id="emptydos"></ul>
+			</div>
+
+
+
+
+
+<script>
+		$(document).ready(function(){
+									var newElement = document.createElement("button");
+									var text = document.createTextNode("Enter Your Search Terms");
+									newElement.id = "button2";
+									newElement.appendChild(text);
+									var element = document.getElementById("main-box");
+									element.appendChild(newElement);
+									
+
+									
+
+					$('#button2').click(function(){
+							var searchTerm = $('#searchTerm').val();
+							var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + 
+									"&format=json&callback=?";
+					$.ajax({
+							type: "GET",
+							url:url,
+							async:false,
+							dataType: "json",
+							success: function(data){
+									/*console.log(data[1][0]);
+									console.log(data[2][0]);
+									console.log(data[3][0]);*/
+									$('#emptydos').html('');
+								for(var i=0; i < data.length; i++){
+									$('#emptydos').prepend("<li><a href = " + data[3][i]+ ">"+data[1][i]+ "</a><p>"+data[2][i]+ "</p></li>");
+								}
+							},
+							error: function(errorMessage){
+								alert("error");
+							}
+
+					});
+
+									
+
+					});
+
+			});
+
+
+
+
+</script>
+</body>
+</html>
+
+<footer id="footer"> By: Manu Developer 
+		<A HREF = "https://www.upwork.com/ab/find-work/" target="_blank" id="button1">Upwork Jobs</A>
+</footer>

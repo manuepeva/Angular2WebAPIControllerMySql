@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<style>
+		{
+					margin: 0px;
+					padding: 0px;
+					
+		}
+		#body{
+			/*background-color: #0d0d0d;*/
+		}
+		
+		#main-box{
+			width: 1365px;
+			height: 600px;
+			margin-left: 450px;
+			margin-top: 100px;
+		}
+			
+		#footer {
+			position:fixed;
+			float: right;
+			left: 0px;
+			bottom:0px;
+			height:34px;
+			width: 100%;
+			background: #ffeecc;
+
+		}
+		.cabeceras{
+			width: 150px;
+			margin-top: 90px;
+			background-color: #ffffff;
+			color: #0d0d0d;
+			text-decoration-color: #0d0d0d;
+		}
+
+		#wea{
+			border-radius: 15%;
+		}
+		
+
+	
+
+		
+</style>
+
+
+</head>
+
+<body id="body">
+		<div id="main-box">
+			<h1 class="cabeceras" id="wea">Weather</h1>
+				<h2 class="cabeceras">The Current Humidity in Cusco city is:</h2>
+				<div id="content">
+					
+				</div>
+				<h2 class="cabeceras">The Current Weather in Cusco city is:</h2>
+				<div id="content2"></div>
+
+		</div>
+		
+	
+
+
+
+</body>
+
+<script>
+
+				var outer = document.getElementById('content2');
+
+				var ourRequest = new XMLHttpRequest();
+				ourRequest.open('GET', 'https://api.weatherbit.io/v2.0/current?lat=13%C2%B031%E2%80%B221&lon=71%C2%B058%E2%80%B202&units=S&callback=callback%3Dfunc&key=31594ade1a474cae9bdc72726c6ac390');
+				ourRequest.onload = function(){
+					var ourData =  (ourRequest.responseText);
+						alert(ourData[0]);
+				}
+
+</script>
+
+</html>
+
+<footer id="footer"> By: Manu Developer 
+		<A HREF = "https://www.upwork.com/ab/find-work/" target="_blank" id="button1">Upwork Jobs</A>
+</footer>

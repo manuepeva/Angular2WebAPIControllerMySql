@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<title>JavaScript Slideshow</title>
+			<link rel="stylesheet" type="text/css" href="">
+			<style type="text/css">
+				#container{
+					/*background-color: #99cc00;*/
+					width: 80%;
+					height: 450px;
+					border:1px;
+					margin: 0 auto;
+				}
+
+				#btn{
+					background-color: #99cc00;
+					height: 10em;
+					width: 40em;
+				}
+
+			</style>
+			<script type="text/javascript">
+
+				var image_tracker = 'f';
+				function change(){
+				var image = document.getElementById('social');
+				if(image_tracker === 'f'){
+					image.src = 'twitter.png';
+					image_tracker = 't';
+				}else {
+					image.src = 'facebook.png';
+					image_tracker = 'f';
+				}
+
+			}
+
+			</script>
+			</head>
+		<body>
+			
+			<div id="container">
+			<button id="btn"></button><span id="span1">
+				<img src="facebook.png" alt="social logo" id="social" onclick="change()">
+			</span>
+
+			</div>
+			<script type="text/javascript">
+
+
+
+
+				/*var domsys = document.getElementById('span1');
+
+				domsys.addEventListener("click", myfun);
+
+				var img2 = 'https://i.ytimg.com/vi/xC5n8f0fTeE/maxresdefault.jpg';
+
+				function myfun(){
+					var imag = new Image();
+					
+					imag.onload = function(){
+						domsys.appendChild(imag);
+				
+					
+						};
+				}
+				myfun();
+
+
+
+				/*var arr = ["Maria Jose", "Laura", "Natalia", "Facundo", "Renato", "Camila", "Luciano", "Bernabe", "Nuria", "Joaquin", "Andrea", "Manuel"];
+				var imgFact = function(src, title){
+					var img = new Image();
+					img.src = src;
+					img.alt = title;
+					img.title = title;
+					return img;
+				};
+				var arrImg = [];
+				arrImg.push(imgFact('carro1.jpg', 'Carro bonito'));
+
+				arrImg.push(imgFact('carro2.jpg', 'Carro más bonito'));
+
+				document.getElementById('span1').innerHTML = arrImg;
+				/*
+
+				var myDiv = document.createElement('div');
+				var rand_names = arr[Math.floor(Math.random() * arr.length)];
+					println(images);
+				var btn = document.getElementById('btn');
+				btn.addEventListener("click", chubu);
+				 /*function chubu(){
+				 	if(myDiv===null){
+					document.getElementById('span1').innerHTML = rand_names;
+				}
+					document.getElementById('span1').innerHTML = '';
+					console.log(rand_names);
+				}
+				*/
+			</script>
+		</body>

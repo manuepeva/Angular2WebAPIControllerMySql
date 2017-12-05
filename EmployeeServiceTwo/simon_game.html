@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html: charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+
+
+<style>
+
+	
+		#main-box{
+			background-color: 	#bfff80;
+			margin: 150px;
+			position: absolute;
+			height: 830px;
+			width:550px;
+			border-radius: 25%;
+			}
+		#upper-box{
+			position: relative;
+			top:50px;
+			bottom:50px;
+			background-color: #99ff33;
+			height: 200px;
+			width: 470px;
+			margin: 30px;
+			padding: 0px;
+			border-radius:13%;	
+			
+			}
+			
+		#middle-box{
+			position: relative;
+			top:50px;
+			bottom:50px;
+			background-color: #99ff33;
+			height: 200px;
+			width: 470px;
+			margin: 30px;
+			padding: 0px;
+			border-radius:13%;	
+		}
+			
+		#lower-box{
+			position: relative;
+			top:50px;
+			bottom:50px;
+			background-color: #99ff33;
+			height: 200px;
+			width: 470px;
+			margin: 30px;
+			padding: 0px;
+			border-radius:13%;
+			
+			}
+			
+		
+		
+		#footer {
+			position:fixed;
+			left: 0px;
+			bottom:0px;
+			height:30px;
+			width: 100%;
+			background:#999;
+
+		}
+		.color{
+			margin:15px 135px;
+			font-size: 35px;
+		}
+		#start{
+			height:95px;
+			width: 85px;
+			display:inline-block;
+			background-color: #1ad1ff;
+			position: relative;
+			left: 29px;
+		}
+		#strict{
+			height:95px;
+			width: 85px;
+			display:inline-block;
+			background-color: #1ad1ff;
+			position: relative;
+			left: 50px;
+		}
+		#on-button{
+			height:95px;
+			width: 85px;
+			display:inline-block;
+			background-color:#1ad1ff;
+			position: relative;
+			left: 260px;
+			bottom: 165px;
+		
+		}
+		#off-button{
+			height:95px;
+			width: 85px;
+			display:inline-block;
+			background-color:#1ad1ff;
+			position: relative;
+			left: 280px;
+			bottom: 165px;
+		}
+		#one{
+			display:block;
+			border:solid;
+			border-color:green;
+			height: 125px;
+			width: 115px;
+			margin:25px;
+		
+		}
+		
+		#two{
+			position:relative;
+			display:block;
+			bottom:360px;
+			border:solid;
+			border-color:green;
+			height: 125px;
+			width: 115px;
+			margin:235px;
+		
+		}
+		
+		#three{
+			position:relative;
+			bottom: 230px;
+			border:solid;
+			border-color:green;
+			height: 125px;
+			width: 115px;
+			margin:225px;
+		
+		}
+		#four{
+			position:relative;
+			right: 165px;
+			bottom: 800px;
+			border:solid;
+			border-color:green;
+			height: 125px;
+			width: 115px;
+			margin:225px;
+		
+		}
+		
+		.light1{
+			background-color: #13FF75;
+		}
+		
+		.light2{
+			background-color: #13FF75;
+		}
+		
+		.light3{
+			background-color: #13FF75;
+		}
+		
+		.light4{
+			background-color: #13FF75;
+		}
+		
+		
+	
+		
+</style>
+
+</head>
+<body>
+	<div id="main-box">
+		<div id="upper-box">
+			<h1 class="color">Simon Game </h1>
+			<button id="one"></button> 
+			<button id="two"></button>
+		</div>
+		<div id="middle-box">
+				<div class="color"> Count</div>
+				<form id="count">  </form>
+				<button id="start">Start</button>
+				<button id="strict">Strict</button>
+				<h1 class="color">Count </h1>
+				<button div id="on-button">On</button>
+				<button div id="off-button">Off</button>
+		</div> 
+		<div id="lower-box">
+			<h1 class="color">Simon Game </h1>
+				<button id="three"></button>
+				<button id="four"></button>
+		</div> 
+	</div>
+	
+	
+</body>
+
+	<audio id="audio1">
+	<source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio2">
+	<source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio3">
+	<source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audio4">
+	<source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+	</audio>
+	
+<script>
+	var random = [];
+	var litID = [];
+	var lit;
+	var clicked = [];
+	var i;
+	var j = 0;
+	var count = 1;
+	var on;
+	var off;
+	var strict;
+	var x;
+	
+	function change1(){
+	
+						if(count <=10){
+							off = 400;
+							on = 800;
+						}
+						
+						else {
+							off = 350;
+							on = 500;
+						}
+						
+						x = setInterval(function (){
+								if(random[j] == 1){
+									lit = 'light1';
+									$('#one').addClass(lit);
+									$('#audio1')[0].play();
+									litID.push(1);
+									setTimeout(function (){
+									$('#one').removeClass(lit);
+									}, off);
+								}
+								
+								else if(random[j] == 2){
+									lit = 'light2';
+									$('#two').addClass(lit);
+									$('#audio2')[0].play();
+									litID.push(2);
+									setTimeout(function (){
+									$('#two').removeClass(lit);
+									}, off);
+									
+								}
+								else if(random[j] == 3){
+									lit = 'light3';
+									$('#three').addClass(lit);
+									$('#audio3')[0].play();
+									litID.push(3);
+									setTimeout(function (){
+									$('#three').removeClass(lit);
+									}, off);
+								}
+								else {
+									lit = 'light4';
+									$('#four').addClass(lit);
+									$('#audio4')[0].play();
+									litID.push(4);
+									setTimeout(function (){
+									$('#four').removeClass(lit);
+									}, off);
+								}
+								j++;
+								
+								if(j>=count){
+									clearInterval(x);
+								}
+								
+							}, on);
+			
+		}
+		
+		function checking(){
+								if(litID.length == clicked.length){
+									if(litID.join() == clicked.join()){
+										if(count == 20){
+											setTimeout(function(){
+												alert("You Win");
+												location.reload();
+											}, 1000);
+										}
+										else {
+											setTimeout(function(){
+												$('#count').text(count + 1);
+												count++;
+												litID = [];
+												clicked = [];
+												j = 0;
+												change1();
+											}, 1000);
+										}
+									}
+										else{
+											if(strict == 1){
+												location.reload();
+											}
+											else {
+												setTimeout(function (){
+													$('#count').text('No!');
+													litID = [];
+													clicked = [];
+													j = 0;
+													change1();
+												}, 1000);
+											}
+										
+										}
+								}
+		}
+		
+		$('#on-button').on('click', function (){
+					$('#count').text('--');
+					
+					for(var i=0; i<20; i++){
+						random[i] = Math.ceil((Math.random() * 4));
+					}
+					
+					$('#strict').on('click', function(){
+						strict=1;
+					});
+					
+					$('#start').on('click', function(){
+						$('#count').text(count);
+						
+						change1();
+					});
+					
+			$('#one').on('click', function(){
+						$('#one').addClass('light1');
+						$('#audio1')[0].play();
+						
+						clicked.push(1);
+						
+						setTimeout(function (){
+							$('#one').removeClass('light1');
+						}, 250);
+						
+						checking();
+					});
+					
+			$('#two').on('click', function(){
+						$('#two').addClass('light2');
+						$('#audio2')[0].play();
+						
+						clicked.push(2);
+						
+						setTimeout(function (){
+							$('#two').removeClass('light2');
+						}, 250);
+						
+						checking();
+					});
+					
+			$('#three').on('click', function(){
+						$('#three').addClass('light3');
+						$('#audio3')[0].play();
+						
+						clicked.push(3);
+						
+						setTimeout(function (){
+							$('#three').removeClass('light3');
+						}, 250);
+						
+						checking();
+					});
+					
+			$('#four').on('click', function(){
+						$('#four').addClass('light4');
+						$('#audio4')[0].play();
+						
+						clicked.push(4);
+						
+						setTimeout(function (){
+							$('#four').removeClass('light4');
+						}, 250);
+						
+						checking();
+					});
+		});
+		
+		
+	$('#off-button').on('click', function(){
+						location.reload();
+	});
+		
+</script>
+	
+
+</html>
+
+<footer id="footer"> The Footer </footer>
