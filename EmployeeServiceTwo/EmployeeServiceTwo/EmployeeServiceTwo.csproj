@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -39,7 +39,7 @@
     <IncludeIisSettings>true</IncludeIisSettings>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="NewConnection1-Deployment" Order="1" xmlns="">
+        <ObjectGroup Name="NewConnection1-Deployment" Order="1" xmlns="" Enabled="False">
           <Destination Path="" />
         </ObjectGroup>
         <ObjectGroup Name="NewConnection2-Deployment" Order="2" xmlns="">
@@ -63,18 +63,22 @@
         <ObjectGroup Name="mydbEntities-Deployment" Order="2">
           <Destination Path="" />
           <Object Type="DbFullSql">
-            <PreSource Path="data source =.\SQLEXPRESS%3b initial catalog=mydb%3bintegrated security = SSPI%3bAttachDBFilename=EMPLOYEESTABLE.mdf%3bprovider=System.Data.SqlClient%3b" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bInitial Catalog=mydb%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\mydbEntities-Deployment_SchemaAndData.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <IncludeIisSettings>true</IncludeIisSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -146,6 +150,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -348,9 +353,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <EntityDeploy Include="Web.config">
+    <Page Include="Web.config">
       <SubType>Designer</SubType>
-    </EntityDeploy>
+    </Page>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
